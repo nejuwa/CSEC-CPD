@@ -1,0 +1,30 @@
+mat =[[1,2,3],[4,5,6],[7,8,9]]
+array = []
+rows = len(mat)
+cols = len(mat[0])
+
+for c in range(cols):
+    i = 0
+    j = c 
+    diagonal = []
+    while i < rows and j >= 0:
+        diagonal.append(mat[i][j])
+        i += 1
+        j -= 1
+    if c % 2 == 0:
+        array.extend(diagonal[::-1])  
+    else:
+        array.extend(diagonal)
+for r in range(1, rows):
+    i = r 
+    j = cols - 1 
+    diagonal = []
+    while i < rows and j >= 0:
+        diagonal.append(mat[i][j])
+        i += 1
+        j -= 1
+    if (r + cols - 1) % 2 == 0:
+        array.extend(diagonal[::-1])  
+    else:
+        array.extend(diagonal)
+print(array)
